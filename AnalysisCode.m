@@ -283,6 +283,10 @@ mdl=fitlm(VRF_MAS,Age_MAS);
 mdl=fitlm(Age_PRECISE,BTR_PRECISE);
 mdl=fitlm(Gender_PRECISE,BTR_PRECISE);
 mdl=fitlm([Age_PRECISE,Gender_PRECISE],BTR_PRECISE,'y ~ x1 * x2');
+
 %% Analysis code for Table S7
 % Variables:
-% p_valuse: P-values of all analysis in this study.
+% p_values: P-values of all analysis in this study.
+% you should add this toolbox in your matlab path:
+% https://ww2.mathworks.cn/matlabcentral/fileexchange/27418-fdr_bh
+[hh,crit_p,adj_ci_cvrg,adj_p]=fdr_bh(p_values,0.05);
